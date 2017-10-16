@@ -1,4 +1,4 @@
-
+html{font-size: 20px;}
 ul{padding: 0}
 li{list-style: none}
 html, body {
@@ -120,11 +120,11 @@ html, body {
     margin-bottom: 6px;
 }
 .text-main .name{
-	font-size: 1.5em;
+	font-size: 1.5rem;
 	font-weight: bold;
 }
 .text-main .content{
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	color: #666;
 	padding: 6px;
 }
@@ -218,11 +218,11 @@ html, body {
 	padding: 4px;
 }
 .text-main2 .name{
-	font-size: 1.5em;
+	font-size: 1.5rem;
 	font-weight: bold;
 }
 .text-main2 .content{
-	font-size: 1.2em;
+	font-size: 1.2rem;
 	color: #666;
 	padding: 6px;
 }
@@ -231,7 +231,7 @@ html, body {
 	right: 20px;
 	bottom: 8px;
 	color: #6f92f6;
-	font-size: 1em;
+	font-size: 1rem;
 	background: url(image/success.png) left center no-repeat;
     line-height: 34px;
     padding-left: 42px;
