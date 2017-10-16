@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  	<meta name="viewport" content="width=640,user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+	
+	<title>任务管理系统</title>
+	<link rel="stylesheet" href="index.css">
+	<script src="js/vue.min.js"></script>
+
+</head>
+<body >
+
+<div id="app">
+
+	<div id="dHead">
+		<div class="title tab1" v-on:click="doing"><div v-bind:class="{ bottom: !finish }"></div></div>
+		<div class="title tab2" v-on:click="hasDone"><div v-bind:class="{ bottom: finish }"></div></div>
+	</div>
+	<div id="dBody">
+		<div class="mycontent">
+
+
+			<ul>
+				<li v-for="item in myData" v-on:click="toggle(item)" v-if='item.show'>
+					<div class="text-main">
+						<div class="name">{{item.name}}</div>
+						<div class="content">{{item.content}}</div>
+					</div>
+					<div class="hr"></div>
+
+					<div class="reseve" v-if="get_review">
+						<div class="todo" v-on:click="todo(item)"></div>
+					</div>
+					<div class="reseve" v-else>
+						<div class="get" v-on:click="finish_review"></div>
+						<div>{{username}}</div>
+						<div>已接受任务</div>
+					</div>
+
+				</li>
+
+
+
+				<li>
+					<div class="text-main">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="hr"></div>
+					<div class="reseve" v-if="get_review">
+						<div class="todo" v-on:click="todo"></div>
+					</div>
+					<div class="reseve" v-else>
+						<div class="get"></div>
+						<div>姓名</div>
+						<div>已接受任务</div>
+					</div>
+
+				</li>
+				<li>
+					<div class="text-main">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="hr"></div>
+					<div class="reseve" v-if="get_review">
+						<div class="todo" v-on:click="todo"></div>
+					</div>
+					<div class="reseve" v-else>
+						<div class="get"></div>
+						<div>姓名</div>
+						<div>已接受任务</div>
+					</div>
+				</li>
+				<li>
+					<div class="text-main">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="hr"></div>
+
+					<div class="reseve">
+						<div class="get"></div>
+						<div>姓名</div>
+						<div>已接受任务</div>
+					</div>
+
+				</li>
+				<li>
+					<div class="text-main">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="hr"></div>
+
+					<div class="reseve">
+						<div class="get"></div>
+						<div>姓名</div>
+						<div>已接受任务</div>
+					</div>
+
+				</li>
+				<li>
+					<div class="text-main">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="hr"></div>
+
+					<div class="reseve">
+						<div class="get"></div>
+						<div>姓名</div>
+						<div>已接受任务</div>
+					</div>
+
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="dFoot">
+		<a class="new" v-on:click="newWord"></a>
+	</div>
+
+
+	<!-- 创建任务 -->
+	<div class="new_word" v-if="seen">
+		<div class="back" v-on:click="back()"></div>
+		<div class="new_main">
+			<div class="banner"></div>
+			<div class="text_box">
+				<textarea class="text_main" placeholder="输入任务内容（60字以内）"  v-model="message" v-on:click="focusStatus" ></textarea>
+				<div class="tip" v-show="tip">任务内容不能为空</div>
+			</div>
+			<div class="sub" v-on:click="submit"></div>
+		</div>
+	</div>
+
+
+	<!-- 已完成任务 -->
+	<div id="dBody2" v-show="finish">
+		<div class="mycontent">
+
+
+			<ul>
+				<li>
+					<div class="text-main2">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="finish">完成者：<span>葫芦娃</span></div>
+
+				</li>
+				<li>
+					<div class="text-main2">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内</div>
+					</div>
+					<div class="finish">完成者：<span>葫芦娃</span></div>
+
+				</li>
+				<li>
+					<div class="text-main2">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="finish">完成者：<span>葫芦娃</span></div>
+
+				</li>
+				<li>
+					<div class="text-main2">
+						<div class="name">姓名</div>
+						<div class="content">内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容</div>
+					</div>
+					<div class="finish">完成者：<span>葫芦娃</span></div>
+
+				</li>
+
+			</ul>
+		</div>
+
+	</div>
+
+
+
+</div>
+
+
+
+
+
+<script>
+
+var app = new Vue({
+	el:'#app',
+	data: {
+		username:"萌奇奇",
+		id:'',
+		myData:[
+        {name:'葫芦娃',content:'找爷爷爷爷',show:true},
+        {name:'葫芦娃2',content:'找爷爷爷爷',show:true},
+        {name:'葫芦娃3',content:'找爷爷爷爷',show:true}
+        ],
+		firsh:'holle vue',
+		finish: false,
+		seen: false,
+		tip:false,
+		message:"",
+		get_review:true
+	},
+	methods:{
+		newWord: function() {
+			this.seen = true
+		},
+		back: function() {
+			this.seen = false,
+			this.tip = false
+		},
+		doing: function() {
+			this.finish = false
+		},
+		hasDone: function() {
+			this.finish = true
+		},
+		submit: function() {
+			if(this.message==""){
+				this.tip = true
+			}else{
+				this.seen = false
+			}
+		},
+		focusStatus: function() {
+			this.tip = false
+		},
+		todo: function(item) {
+			// this.get_review = false
+			
+		},
+	    toggle: function(item) {
+				item.show = !item.show;
+	    },
+		finish_review: function() {
+			this.get_review = true
+		}
+	}
+	
+
+})
+
+
+</script>
+
+
+
+</body>
+</html>

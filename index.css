@@ -1,0 +1,239 @@
+
+ul{padding: 0}
+li{list-style: none}
+html, body {
+    height:100%;
+    margin:0;
+    padding:0;
+    font-family: "微软雅黑"
+}
+#dHead {
+    height:100px;
+    background:url(image/010.png) center;
+    background-size: cover;
+    width:100%;
+    position:absolute;
+    z-index:1001;
+    top:0;
+    text-align:center;
+    display: flex;
+    box-shadow: 0 0 50px 6px #7d7d7d;
+}
+#dHead .title{
+	flex: 1;
+}
+#dHead .tab1{
+	background: url(image/011.png) center no-repeat;
+}
+#dHead .tab2{
+	background: url(image/012.png) center no-repeat;
+}
+.bottom{
+    width: 36%;
+    height: 3px;
+    background: #fff;
+    margin: 0 7%;
+    position: absolute;
+    bottom:0px;
+}
+/*#dHead .on{
+	width:100%;
+	height: 2px;
+	background: #fff;
+}*/
+#dBody {
+    /*background:#FC0;*/
+    width:100%;
+    overflow:auto;
+    top:100px;
+    position:absolute;
+    z-index:10;
+    bottom:100px;
+}
+.mycontent {
+    padding:10px 0;
+}
+.mycontent ul li{
+	width:90%;
+	height:200px;
+	margin:0 auto 30px;
+	border-radius: 10px;
+	box-shadow:3px 3px 29px #A09F9F;
+	box-sizing: border-box;
+	padding:10px 0 10px 10px;
+	display: flex;
+	position: relative;
+	/*border:1px solid #000;*/
+}
+#dFoot {
+    height:100px;
+    line-height:100px;
+    background:#fff;
+    width:100%;
+    position:absolute;
+    z-index:200;
+    bottom:0;
+    text-align:center;
+    box-shadow: 0 0 36px #D0CECE;
+}
+#dFoot .new{
+	background: url(image/013.png) center 15px no-repeat;
+	background-size: contain;
+    width: 280px;
+    height: 100px;
+    border: 0;
+    display: block;
+    margin: auto;
+}
+
+.text-main{
+	width:75%;
+	height: 100%;
+	padding: 4px;
+	/*background: blue;*/
+}
+.hr{
+	width:2px;
+	height: 80%;
+	background: #ddd;
+	margin:auto 0;
+}
+.reseve{
+	width:24%;
+	height: 100%;
+    color: #6f92f6;
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.6em;
+    font-weight: bold;
+}
+.reseve .todo{
+	width: 100%;
+	height: 86%;
+    background: url(image/014.png) center bottom no-repeat;
+    /*background-size: 80%;*/
+}
+.reseve .get{
+    width: 100%;
+    height: 57%;
+    background: url(image/015.png) center bottom no-repeat;
+    margin-bottom: 6px;
+}
+.text-main .name{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.text-main .content{
+	font-size: 1.2em;
+	color: #666;
+	padding: 6px;
+}
+
+
+/*创建任务*/
+.new_word{
+	width:100%;
+	height: 100%;
+	background:#fff url(image/new_word.png) center top no-repeat;
+	z-index: 1002;
+	position: absolute;
+	top: 0;
+    overflow: hidden;
+	/*display: none;*/
+}
+.new_word .back{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    border-width: 0 0 3px 3px;
+    border-color: #fff;
+    border-style: solid;
+    transform: rotateZ(45deg);
+    margin: 10px;
+}
+.new_main{
+	/*display: flex;*/
+}
+.banner{
+	margin-top: 23%;
+	height: 200px;
+	background: url(image/new_title.png) center top no-repeat;
+}
+.text_box{
+	width:66%;
+	height: 340px;
+    margin: 10% 12% 0;
+    padding: 20px 5% 50px;
+	border-radius: 15px;
+	box-shadow:5px 5px 29px #A09F9F;
+	background: url(image/text_bg.png) center no-repeat ;
+}
+.text_main{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    color: #000;
+    position: relative;
+    background: none;
+    font-size: 2em;
+}
+.tip{
+	color: red;
+	font-size: 1.2em;
+	text-align: center;
+    line-height: 0.5em;
+}
+.sub{
+    width: 320px;
+    height: 110px;
+    background: url(image/sub.png) center no-repeat;
+    margin: auto;
+    position: relative;
+    top: -40px;
+    background-size: contain;
+}
+
+
+
+/*已经完成的任务*/
+#dBody2 {
+    background:#Fff;
+    width:100%;
+    overflow:auto;
+    top:100px;
+    position:absolute;
+    z-index:300;
+    bottom:0;
+    /*display: none;*/
+}
+/*#dBody2 li{
+	min-height: 200px;
+	padding: 10px 0 40px 10px;
+}*/
+.text-main2{
+	height: 100%;
+	padding: 4px;
+}
+.text-main2 .name{
+	font-size: 1.5em;
+	font-weight: bold;
+}
+.text-main2 .content{
+	font-size: 1.2em;
+	color: #666;
+	padding: 6px;
+}
+.finish{
+	position: absolute;
+	right: 20px;
+	bottom: 8px;
+	color: #6f92f6;
+	font-size: 1em;
+	background: url(image/success.png) left center no-repeat;
+    line-height: 34px;
+    padding-left: 42px;
+    background-size: contain;
+}
